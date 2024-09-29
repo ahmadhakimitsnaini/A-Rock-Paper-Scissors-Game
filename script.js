@@ -7,8 +7,8 @@
 
 // Tips
 
-// You can use Math.random() and Math.floor() to help you get a random whole number. This will represent the index number for the options array.
-// You can use the random index to access the option from the options array.
+// - You can use Math.random() and Math.floor() to help you get a random whole number. This will represent the index number for the options array.
+// - You can use the random index to access the option from the options array.
 
 // Function untuk menentukan pilihan computer
 function getRandomComputerResult() {
@@ -24,12 +24,11 @@ function getRandomComputerResult() {
 
 // Complete the hasPlayerWonTheRound function. This function has two parameters: player and computer. The function should return true if the player has won the round, and false if the player has lost or tied the round.
 
-// Here are the criteria for the player to win a round:
-
-// If the player chooses "Rock" and the computer chooses "Scissors"
-// If the player chooses "Scissors" and the computer chooses "Paper"
-// If the player chooses "Paper" and the computer chooses "Rock"
-// A few function calls have been provided for you to test your function.
+// Here are the criteria for the player to win a round :
+// - If the player chooses "Rock" and the computer chooses "Scissors"
+// - If the player chooses "Scissors" and the computer chooses "Paper"
+// - If the player chooses "Paper" and the computer chooses "Rock"
+// - A few function calls have been provided for you to test your function.
 
 // Function untuk menentukan apkah player menang game
 function hasPlayerWonTheRound(player, computer) {
@@ -56,8 +55,8 @@ let computerScore = 0;
 
 // Tips
 
-// Remember you can use the hasPlayerWonTheRound function to check if the player wins the round.
-// You can use template literals or regular string concatenation to build the message.
+// - Remember you can use the hasPlayerWonTheRound function to check if the player wins the round.
+// - You can use template literals or regular string concatenation to build the message.
 
 // Function untuk menentukan siapa yang menang
 function getRoundResults(userOption) {
@@ -92,8 +91,8 @@ function showResults(userOption) {
 
   // Tips
 
-  // Remember that you learned how to work with the innerText property to update the text content of an element.
-  // You can use the getRoundResults function to get the result of the round.
+  // - Remember that you learned how to work with the innerText property to update the text content of an element.
+  // - You can use the getRoundResults function to get the result of the round.
 
   roundResultsMsg.innerText = getRoundResults(userOption);
   computerScoreSpanElement.innerText = computerScore;
@@ -110,16 +109,43 @@ function showResults(userOption) {
 
   // Tips
 
-  // Use the style.display property on an element, with the value "block" or "none", to show or hide the element.
+  // - Use the style.display property on an element, with the value "block" or "none", to show or hide the element.
+  // - Function untuk menentukan siapa yang mencapai 3 poin pertama
 
-  // Function untuk menentukan siapa yang mencapai 3 poin pertama
+  function showResults(userOption) {
+    roundResultsMsg.innerText = getRoundResults(userOption);
+    computerScoreSpanElement.innerText = computerScore;
+    playerScoreSpanElement.innerText = playerScore;
 
-  if (playerScoreSpanElement === 3) {
-    winnerMsgElement += "Player has won the game!";
-  } else if (computerScoreSpanElement) {
-    winnerMsgElement += "Computer has won the game!";
+    if (playerScore === 3 || computerScore === 3) {
+      winnerMsgElement.innerText = `${
+        playerScore === 3 ? "Player" : "Computer"
+      } has won the game!`;
+
+      resetGameBtn.style.display = "block";
+      optionsContainer.style.display = "none";
+    }
   }
 }
+
+// Step 6
+// If the player or computer has won the game, there should be an option to reset the game and play again.
+
+// Complete the resetGame function that accomplishes the following:
+// - Resets the player and computer scores to 0.
+// - Updates the playerScoreSpanElement and computerScoreSpanElement to display the new scores.
+// - Hides the resetGameBtn button.
+// - Shows the optionsContainer so the player can play again.
+// - Clears the content for the winnerMsgElement and roundResultsMsg elements.
+
+// Tips
+
+// - You can use the innerText property to update the content of an element. To clear the content of an element, you can set the innerText to an empty string.
+// - Once you apply those changes, you will have completed the Rock, Paper, Scissors game!
+
+function resetGame() {}
+
+resetGameBtn.addEventListener("click", resetGame);
 
 const rockBtn = document.getElementById("rock-btn");
 const paperBtn = document.getElementById("paper-btn");
