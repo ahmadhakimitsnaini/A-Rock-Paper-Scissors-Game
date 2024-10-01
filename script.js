@@ -143,7 +143,16 @@ function showResults(userOption) {
 // - You can use the innerText property to update the content of an element. To clear the content of an element, you can set the innerText to an empty string.
 // - Once you apply those changes, you will have completed the Rock, Paper, Scissors game!
 
-function resetGame() {}
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
+  playerScoreSpanElement.innerText = playerScore;
+  computerScoreSpanElement.innerText = computerScore;
+  resetGameBtn.style.display = "none";
+  optionsContainer.style.display = "block";
+  winnerMsgElement.innerText = " ";
+  roundResultsMsg.innerText = " ";
+}
 
 resetGameBtn.addEventListener("click", resetGame);
 
